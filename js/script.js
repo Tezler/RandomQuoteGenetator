@@ -3,7 +3,7 @@
 // quoteString and sourceString containg the line of text that is going to be printed.
 // bgColor contains the color that the background will change to once the printQuote function is activated.
 var intervalID = window.setInterval(printQuote, 30000)
-maxNumber = quotes.length;
+var maxNumber = quotes.length;
 var previousNumbers = [];
 var randomNumber;
 var quoteString;
@@ -31,7 +31,6 @@ function printQuote() {
 //If it has not been displayed, it pushes the value. If it has,
 // it generates more random numbers until we get one that hasn't.
 // once the length of the outputted messages reach the number of quotes it resets so that the random script keeps running.
-
 function getRandomQuote() {
   if (previousNumbers.length != maxNumber) {
     do {
@@ -45,7 +44,5 @@ function getRandomQuote() {
 }
   bgColor = backgroundColor[randomNumber];
   quoteString = quotes[randomNumber].quote;
-  //quoteString = quoteString.quote;
-  sourceString = quotes[randomNumber];
-  sourceString = sourceString.source;
+  sourceString = quotes[randomNumber].source;
 }
