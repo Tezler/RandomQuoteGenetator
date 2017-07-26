@@ -3,6 +3,8 @@
 // quoteString and sourceString containg the line of text that is going to be printed.
 // bgColor contains the color that the background will change to once the printQuote function is activated.
 var intervalID = window.setInterval(printQuote, 30000)
+maxNumber = quotes.length;
+var previousNumbers = [];
 var randomNumber;
 var quoteString;
 var sourceString;
@@ -17,21 +19,33 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 to put together the lines of html that are going to be printed.*/
 function printQuote() {
   getRandomQuote();
-  var quoteOutput = '<p class="quote">' + quoteString + '</p>';
+  var quoteOutput = '<p class="quote">' + quoteString + '<span class = "tags"></span></p>';
   quoteOutput += '<p class="source">' + sourceString + '</p>';
   document.getElementById('quote-box').innerHTML = quoteOutput;
   document.getElementById("body").style.backgroundColor = bgColor;
+  document.getElementById("loadQuote").style.backgroundColor = bgColor;
   console.log(quoteOutput);
 }
 
-// function that generates a random quote
-// first generates a random number between 1 & 5 since we have 5 quotes.
-// second it takes the number generated and selects that number within the array
+// function that generates a random number and adds a check to see if that number has been displayed already.
+//If it has not been displayed, it pushes the value. If it has,
+// it generates more random numbers until we get one that hasn't.
+// once the length of the outputted messages reach the number of quotes it resets so that the random script keeps running.
+
 function getRandomQuote() {
-  randomNumber = Math.floor((Math.random() * 5) + 0);
+  if (previousNumbers.length != maxNumber) {
+    do {
+    randomNumber = Math.floor((Math.random() * maxNumber) + 0);
+  }
+  while (previousNumbers.indexOf(randomNumber) > -1);
+  previousNumbers.push(randomNumber);
+  console.log(randomNumber);
+} else if (previousNumbers.length = 4) {
+  previousNumbers = [];
+}
   bgColor = backgroundColor[randomNumber];
-  quoteString = quotes[randomNumber];
-  quoteString = quoteString.quote;
+  quoteString = quotes[randomNumber].quote;
+  //quoteString = quoteString.quote;
   sourceString = quotes[randomNumber];
   sourceString = sourceString.source;
 }
