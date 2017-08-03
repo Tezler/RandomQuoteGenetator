@@ -48,7 +48,6 @@ function getRandomQuote() {
     tagString = container[0].tags;
     sourceString = container[0].source;
     quoteString = container[0].quote;
-
     bgColor = backgroundColor[Math.floor((Math.random() * backgroundColor.length) + 0)];
   }
 }
