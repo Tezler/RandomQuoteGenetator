@@ -1,9 +1,9 @@
 //Variables containing various bits of information
 // randomNumber contains the number generated within the function getRandomQuote
-// quoteString, tagString and sourceString containg the values that printQuote will organize into a string.
+// quoteString, tagString and sourceString contain the values that printQuote will organize into a string.
 // bgColor contains the color that the background will change to once the printQuote function is activated.
-// intervalID runs the printQuote function at 30 second intervals
-var autoGenerateQuote = window.setInterval(printQuote, 30000)
+// autoGenerateQuote runs the printQuote function at 30 second intervals
+var autoGenerateQuote = window.setInterval(printQuote, 30000);
 var quotesCopy = quotes.slice(0, quotes.length);
 var randomNumber;
 var quoteString;
