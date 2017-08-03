@@ -7,28 +7,33 @@ var quotes = [
   {
     quote: 'Whatever the mind of man can conceive and belive, it can achieve.',
     source: 'Napoleon Hill',
-    tags: ['[Motivational', ' Inspiration]']
+    tags: ['Motivation', ' Inspiration']
   },
   {
     quote: 'Always do your best, what you plant now you will harvest later.',
     source: 'Norman Ralph Augustine',
-    tags: ['Motivational', 'Inspiration']
+    tags: ['Motivation', ' Inspiration']
   },
   {
-    quote: "Everything you've ever wanted is on the other side of fear.",
-    source: 'George Addair',
-    tags: ['Motivational', 'Inspiration']
+    quote: "Courage doesn’t always roar. Sometimes courage is the quiet voice at the end of the day saying, ‘I will try again tomorrow.",
+    source: 'Mary Anne Radmacher',
+    tags: ['Motivation', ' Inspiration']
   },
   {
     quote: 'Become the person who would attract the results you seek.',
     source: 'Jim Cathcart',
-    tags: ['Motivational', 'Inspiration']
+    tags: ['Motivation', ' Inspiration', ' Words to live by']
   },
   {
-    quote: "Don't watch the clock, do what it does. Keep going!",
-    source: 'Sam Levenson',
-    tags: ['Motivational', 'Inspiration']
+    quote: "Stive not to be a success, but rather to be of value",
+    source: 'Albert Einstein',
+    tags: ['Motivation', ' Inspiration', ' Success']
+  },
+  {
+    quote: "Build your own dreams, or someone else will hire you to build theirs",
+    source: 'Farrah Gray',
+    tags: ["Motivation", " Inspiration", " Words to live by"]
   }
 ];
 
-var backgroundColor = ['red','blue','green','purple','yellow'];
+var backgroundColor = ['red','blue','green','purple','orange'];

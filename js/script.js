@@ -1,48 +1,54 @@
 //Variables containing various bits of information
 // randomNumber contains the number generated within the function getRandomQuote
-// quoteString and sourceString containg the line of text that is going to be printed.
+// quoteString, tagString and sourceString containg the values that printQuote will organize into a string.
 // bgColor contains the color that the background will change to once the printQuote function is activated.
-var intervalID = window.setInterval(printQuote, 30000)
-var maxNumber = quotes.length;
-var previousNumbers = [];
+// intervalID runs the printQuote function at 30 second intervals
+var autoGenerateQuote = window.setInterval(printQuote, 30000)
+var quotesCopy = quotes.slice(0, quotes.length);
 var randomNumber;
 var quoteString;
 var sourceString;
+var tagString;
 var bgColor;
 
 // event listener to respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
-// function that prints the quote to the document.
-/* first executes getRandomNumber then uses the values generated
-to put together the lines of html that are going to be printed.*/
+// this function calls getRandomQuote and grabes the values generated from the program.
+// puts together a string using the values then prints them to the document.
+// log is to make sure the quotes are not repeated until the loop has run fully.
 function printQuote() {
   getRandomQuote();
   var quoteOutput = '<p class="quote">' + quoteString + '<span class = "tags"></span></p>';
   quoteOutput += '<p class="source">' + sourceString + '</p>';
+  quoteOutput += '<p class="tags">' + '[' + tagString + ']' + '</p>';
   document.getElementById('quote-box').innerHTML = quoteOutput;
   document.getElementById("body").style.backgroundColor = bgColor;
   document.getElementById("loadQuote").style.backgroundColor = bgColor;
+  clearTimeout(autoGenerateQuote);
   console.log(quoteOutput);
 }
 
-// function that generates a random number and adds a check to see if that number has been displayed already.
-//If it has not been displayed, it pushes the value. If it has,
-// it generates more random numbers until we get one that hasn't.
-// once the length of the outputted messages reach the number of quotes it resets so that the random script keeps running.
+// Function that Generates a random quote
+// slices the original object array to a new one
+// each time the loop runs it splices an item from the new object
+// the spliced items are grabbed and pushed to the appropriate values
+// added a check that refills the sliced object array once its empty
+// reruns the program once the object array has been refilled
+// each time the program is ran, it clears the autoGenerateQuote interval
 function getRandomQuote() {
-  if (previousNumbers.length != maxNumber) {
-    do {
-    randomNumber = Math.floor((Math.random() * maxNumber) + 0);
+  if (quotesCopy.length == 0) {
+    quotesCopy = quotes.slice(0, quotes.length);
+    console.log("the object array has been refilled.")
+    getRandomQuote();
+  } else {
+    randomNumber = Math.floor((Math.random() * quotesCopy.length) + 0);
+    var container = quotesCopy.splice(randomNumber,1);
+    tagString = container[0].tags;
+    sourceString = container[0].source;
+    quoteString = container[0].quote;
+
+    bgColor = backgroundColor[Math.floor((Math.random() * backgroundColor.length) + 0)];
   }
-  while (previousNumbers.indexOf(randomNumber) > -1);
-  previousNumbers.push(randomNumber);
-  console.log(randomNumber);
-} else if (previousNumbers.length = 4) {
-  previousNumbers = [];
-}
-  bgColor = backgroundColor[randomNumber];
-  quoteString = quotes[randomNumber].quote;
-  sourceString = quotes[randomNumber].source;
 }
