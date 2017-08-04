@@ -30,6 +30,13 @@ function printQuote() {
   console.log(quoteOutput);
 }
 
+
+// function that generates a random number
+function getRandomNumber(prop) {
+  randomNumber = Math.floor((Math.random() * prop) + 0);
+  return randomNumber;
+}
+
 // Function that Generates a random quote
 // slices the original object array to a new one
 // each time the loop runs it splices an item from the new object
@@ -43,11 +50,11 @@ function getRandomQuote() {
     console.log("the object array has been refilled.")
     getRandomQuote();
   } else {
-    randomNumber = Math.floor((Math.random() * quotesCopy.length) + 0);
+    getRandomNumber(quotesCopy.length);
     var container = quotesCopy.splice(randomNumber,1);
     tagString = container[0].tags;
     sourceString = container[0].source;
     quoteString = container[0].quote;
-    bgColor = backgroundColor[Math.floor((Math.random() * backgroundColor.length) + 0)];
+    bgColor = backgroundColor[getRandomNumber(backgroundColor.length)];
   }
 }
