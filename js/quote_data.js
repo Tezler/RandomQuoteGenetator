@@ -36,4 +36,4 @@ var quotes = [
   }
 ];
 
-var backgroundColor = ['red','blue','green','purple','orange'];
+var backgroundColor = ['red','blue','green','purple','orange', 'DarkRed', 'DarkOrange','BlueViolet', 'Indigo', 'MediumBlue'];
