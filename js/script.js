@@ -16,7 +16,8 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 
 // this function calls getRandomQuote and grabes the values generated from the program.
 // puts together a string using the values then prints them to the document.
-// log is to make sure the quotes are not repeated until the loop has run fully.
+// log is to make sure the quotes are not repeated until the each item has been printed once.
+// added a function to clear the timeout each time the printQuote function is ran.
 function printQuote() {
   getRandomQuote();
   var quoteOutput = '<p class="quote">' + quoteString + '<span class = "tags"></span></p>';
