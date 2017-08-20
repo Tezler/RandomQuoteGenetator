@@ -1,4 +1,3 @@
-//Variables containing various bits of information
 // randomNumber contains the number generated within the function getRandomQuote
 // quoteString, tagString and sourceString contain the values that printQuote will organize into a string.
 // bgColor contains the color that the background will change to once the printQuote function is activated.
@@ -11,7 +10,7 @@ var sourceString;
 var tagString;
 var bgColor;
 
-// event listener to respond to "Show another quote" button clicks
+// event listener to responds when "Show another quote" button is clicked
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
