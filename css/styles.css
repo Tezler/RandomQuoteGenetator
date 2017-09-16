@@ -51,13 +51,13 @@
   line-height: 1.1;
   text-align: right;
   float: right;
-  margin-right: 9.8em;
+  margin-right: 9.86em;
 }
 .tags:before {
-  content: "[";
+  content: "[ ";
 }
 .tags:after {
-  content: "]";
+  content: " ]";
 }
 .citation {
 

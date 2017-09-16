@@ -7,16 +7,16 @@ var quotes = [
   {
     quote: 'Obstacles are things a person sees when he takes his eyes off his goal.',
     source: 'E Joseph Cossman',
-    citation: '',
-    year: '0',
-    tags: ['Leadership', ' Eyes', ' Obstacles']
+    citation: 'E. Joseph Cossman Quotes',
+    year: '2017',
+    tags: ['Leadership', ' Eyes', ' Obstacles', 'Success']
   },
   {
-    quote: 'Always do your best, what you plant now you will harvest later.',
-    source: 'Norman Ralph Augustine',
-    citation: '',
-    year: '',
-    tags: ['Motivation', ' Inspiration']
+    quote: 'Love is the longing for the half of ourselves we have lost.',
+    source: 'Milan Kundera',
+    citation: 'The Unbearable Lightness of Being',
+    year: '1984',
+    tags: ['Love', ' Life', 'Poetry']
   },
   {
     quote: "We are all in the gutter, but some of us are looking at the stars",

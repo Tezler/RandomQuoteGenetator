@@ -3,7 +3,6 @@
 // randomNumber contains the number generated within the function getRandomQuote
 // quoteOutput stores the values that are going to be returned in getRandomQuote and printed.
 // bgColor contains the color that the background will change to once the printQuote function is activated.
-
 var autoGenerateQuote = window.setInterval(printQuote, 30000);
 var quotesCopy = quotes.slice(0, quotes.length);
 var randomNumber;
@@ -14,10 +13,8 @@ var bgColor;
 // when user clicks anywhere on the button, the "printQuote" function is called.
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
-// Prints a quote to the page by calling the gerRandomQuote function and returning the value.
-// sets the background color of the page and button to the value of bgColor.
-// added a reset for the interval that auto runs the printQuote function once the button has been clicked.
-// log is to make sure the quotes are not repeated until the loop has run fully.
+// Prints a quote to the page & changes background color by calling the gerRandomQuote function and returning the value.
+// added log to confirm that quotes are not repeating and a reset for the autoGenerateQuote interval.
 function printQuote() {
   document.getElementById('quote-box').innerHTML = getRandomQuote();
   document.getElementById("body").style.backgroundColor = bgColor;
@@ -33,13 +30,12 @@ function getRandomNumber(prop) {
   return randomNumber;
 }
 
-//Generates a random quote and organizes it into a displayable output before returning the value
+// Generates a random quote and organizes it into a displayable output before returning the value
 // it pulls a random value from quoteCopy - added a check to refill it once it becomes empty
 function getRandomQuote() {
   if (quotesCopy.length == 0) {
     quotesCopy = quotes.slice(0, quotes.length);
-    return getRandomQuote();
-  } else {
+  }
     getRandomNumber(quotesCopy.length);
       var container = quotesCopy.splice(randomNumber,1);
       quoteOutput = '<p class="quote">' + container[0].quote + '</p>';
@@ -47,5 +43,4 @@ function getRandomQuote() {
       quoteOutput += '<p><span class="tags">' + container[0].tags + '</span></p>';
       bgColor = backgroundColor[getRandomNumber(backgroundColor.length)];
     return quoteOutput;
-  }
 }
