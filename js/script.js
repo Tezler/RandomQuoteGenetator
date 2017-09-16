@@ -43,7 +43,7 @@ function getRandomQuote() {
     getRandomNumber(quotesCopy.length);
       var container = quotesCopy.splice(randomNumber,1);
       quoteOutput = '<p class="quote">' + container[0].quote + '</p>';
-      quoteOutput += '<p class="source">' + container[0].source + '<span class="citation">' + container[0].citation + '</span>' + '<span class="year"' + container[0].year + '</span></p>';
+      quoteOutput += '<p class="source">' + container[0].source + '<span class="citation">' + container[0].citation + '</span>' + '<span class="year">' + container[0].year + '</span></p>';
       quoteOutput += '<p><span class="tags">' + container[0].tags + '</span></p>';
       bgColor = backgroundColor[getRandomNumber(backgroundColor.length)];
     return quoteOutput;
