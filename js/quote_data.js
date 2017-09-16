@@ -5,33 +5,45 @@
 //Note: The quotes that I grabbed did not have dates associated with them as far as i know.
 var quotes = [
   {
-    quote: 'Whatever the mind of man can conceive and belive, it can achieve.',
-    source: 'Napoleon Hill',
-    tags: ['Motivation', ' Inspiration']
+    quote: 'Obstacles are things a person sees when he takes his eyes off his goal.',
+    source: 'E Joseph Cossman',
+    citation: '',
+    year: '0',
+    tags: ['Leadership', ' Eyes', ' Obstacles']
   },
   {
     quote: 'Always do your best, what you plant now you will harvest later.',
     source: 'Norman Ralph Augustine',
+    citation: '',
+    year: '',
     tags: ['Motivation', ' Inspiration']
   },
   {
-    quote: "Courage doesn’t always roar. Sometimes courage is the quiet voice at the end of the day saying, ‘I will try again tomorrow.",
-    source: 'Mary Anne Radmacher',
-    tags: ['Motivation', ' Inspiration']
+    quote: "We are all in the gutter, but some of us are looking at the stars",
+    source: 'Oscar Wilde',
+    citation: 'Lady Windermere’s Fan',
+    year: '1893',
+    tags: ['Courage', ' Perserverance', ' Tenacity']
   },
   {
-    quote: 'Become the person who would attract the results you seek.',
-    source: 'Jim Cathcart',
-    tags: ['Motivation', ' Inspiration', ' Words to live by']
+    quote: 'It is better to be hated for what you are than to be loved by what you are not.',
+    source: 'André Gide',
+    citation: 'Autum Leaves',
+    year: '1950',
+    tags: ['Life', ' Inspiration', ' Words to live by']
   },
   {
-    quote: "Stive not to be a success, but rather to be of value",
-    source: 'Albert Einstein',
+    quote: "The goal isn't to live forever, its to create something that will.",
+    source: 'David Mitchell',
+    citation: 'Cloud Atlas',
+    year: '2004',
     tags: ['Motivation', ' Inspiration', ' Success']
   },
   {
-    quote: "Build your own dreams, or someone else will hire you to build theirs",
-    source: 'Farrah Gray',
+    quote: "The only limits for tomorrow are the doubs we have today.",
+    source: 'Pittacus Lore',
+    citation: 'The Power of Six',
+    year: '2011',
     tags: ["Motivation", " Inspiration", " Words to live by"]
   }
 ];

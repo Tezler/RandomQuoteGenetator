@@ -1,60 +1,51 @@
+// autoGenerateQuote runs the printQuote function at 30 second intervals.
+// quotes copy is a splice of the original object array - used for preventing repeating.
 // randomNumber contains the number generated within the function getRandomQuote
-// quoteString, tagString and sourceString contain the values that printQuote will organize into a string.
+// quoteOutput stores the values that are going to be returned in getRandomQuote and printed.
 // bgColor contains the color that the background will change to once the printQuote function is activated.
-// autoGenerateQuote runs the printQuote function at 30 second intervals
+
 var autoGenerateQuote = window.setInterval(printQuote, 30000);
 var quotesCopy = quotes.slice(0, quotes.length);
 var randomNumber;
-var quoteString;
-var sourceString;
-var tagString;
+var quoteOutput;
 var bgColor;
 
-// event listener to responds when "Show another quote" button is clicked
-// when user clicks anywhere on the button, the "printQuote" function is called
+// event listener to respond to "Show another quote" button clicks.
+// when user clicks anywhere on the button, the "printQuote" function is called.
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
-// this function calls getRandomQuote and grabes the values generated from the program.
-// puts together a string using the values then prints them to the document.
-// log is to make sure the quotes are not repeated until the each item has been printed once.
-// added a function to clear the timeout each time the printQuote function is ran.
+// Prints a quote to the page by calling the gerRandomQuote function and returning the value.
+// sets the background color of the page and button to the value of bgColor.
+// added a reset for the interval that auto runs the printQuote function once the button has been clicked.
+// log is to make sure the quotes are not repeated until the loop has run fully.
 function printQuote() {
-  getRandomQuote();
-  var quoteOutput = '<p class="quote">' + quoteString + '<span class = "tags"></span></p>';
-  quoteOutput += '<p class="source">' + sourceString + '</p>';
-  quoteOutput += '<p class="tags">' + '[' + tagString + ']' + '</p>';
-  document.getElementById('quote-box').innerHTML = quoteOutput;
+  document.getElementById('quote-box').innerHTML = getRandomQuote();
   document.getElementById("body").style.backgroundColor = bgColor;
   document.getElementById("loadQuote").style.backgroundColor = bgColor;
-  clearTimeout(autoGenerateQuote);
+  clearInterval(autoGenerateQuote);
+  autoGenerateQuote = window.setInterval(printQuote, 30000);
   console.log(quoteOutput);
 }
 
-
-// function that generates a random number
+// Generates a random number then returns the value.
 function getRandomNumber(prop) {
   randomNumber = Math.floor((Math.random() * prop) + 0);
   return randomNumber;
 }
 
-// Function that Generates a random quote
-// slices the original object array to a new one
-// each time the loop runs it splices an item from the new object
-// the spliced items are grabbed and pushed to the appropriate values
-// added a check that refills the sliced object array once its empty
-// reruns the program once the object array has been refilled
-// each time the program is ran, it clears the autoGenerateQuote interval
+//Generates a random quote and organizes it into a displayable output before returning the value
+// it pulls a random value from quoteCopy - added a check to refill it once it becomes empty
 function getRandomQuote() {
   if (quotesCopy.length == 0) {
     quotesCopy = quotes.slice(0, quotes.length);
-    console.log("the object array has been refilled.")
-    getRandomQuote();
+    return getRandomQuote();
   } else {
     getRandomNumber(quotesCopy.length);
-    var container = quotesCopy.splice(randomNumber,1);
-    tagString = container[0].tags;
-    sourceString = container[0].source;
-    quoteString = container[0].quote;
-    bgColor = backgroundColor[getRandomNumber(backgroundColor.length)];
+      var container = quotesCopy.splice(randomNumber,1);
+      quoteOutput = '<p class="quote">' + container[0].quote + '</p>';
+      quoteOutput += '<p class="source">' + container[0].source + '<span class="citation">' + container[0].citation + '</span>' + '<span class="year"' + container[0].year + '</span></p>';
+      quoteOutput += '<p><span class="tags">' + container[0].tags + '</span></p>';
+      bgColor = backgroundColor[getRandomNumber(backgroundColor.length)];
+    return quoteOutput;
   }
 }

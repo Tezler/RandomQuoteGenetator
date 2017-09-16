@@ -50,14 +50,29 @@
   letter-spacing: 0.05em;
   line-height: 1.1;
   text-align: right;
-  margin-right: 4em;
+  float: right;
+  margin-right: 5em;
+}
+.tags:before {
+  content: "[";
+}
+.tags:after {
+  content: "]";
 }
 .citation {
+
   font-style: italic;
 }
 .citation:before {
   content: ", ";
   font-style: normal;
+}
+.year {
+  font-size: 1.25rem;;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  text-align: right;
+  margin-right: 4em;
 }
 .year:before {
   content: ", ";
