@@ -1,5 +1,5 @@
 // autoGenerateQuote runs the printQuote function at 30 second intervals.
-// quotes copy is a splice of the original object array - used for preventing repeating.
+// quotesCopy is a splice of the original object array - used for preventing repeating.
 // randomNumber contains the number generated within the function getRandomQuote
 // quoteOutput stores the values that are going to be returned in getRandomQuote and printed.
 // bgColor contains the color that the background will change to once the printQuote function is activated.
@@ -7,7 +7,6 @@ var autoGenerateQuote = window.setInterval(printQuote, 30000);
 var quotesCopy = quotes.slice(0, quotes.length);
 var randomNumber;
 var quoteOutput;
-var backgroundColor = ['red','blue','green','purple','orange', 'DarkRed', 'DarkOrange','BlueViolet', 'Indigo', 'MediumBlue'];
 var bgColor;
 
 // event listener to respond to "Show another quote" button clicks.
@@ -20,16 +19,15 @@ document.getElementById("body").addEventListener("load", printQuote, true);
 // Prints a quote to the page & changes background color by calling the gerRandomQuote function and returning the value.
 // added log to confirm that quotes are not repeating(project requirement) and a reset for the autoGenerateQuote interval.
 function printQuote() {
+  clearInterval(autoGenerateQuote);
+  autoGenerateQuote = window.setInterval(printQuote, 30000);
   var grabQuote = getRandomQuote();
   quoteOutput = '<p class="quote">' + grabQuote[0].quote + '</p>';
   quoteOutput += '<p class="source">' + grabQuote[0].source + '<span class="citation">' + grabQuote[0].citation + '</span>' + '<span class="year">' + grabQuote[0].year + '</span></p>';
   quoteOutput += '<p><span class="tags">' + grabQuote[0].tags + '</span></p>';
-  bgColor = backgroundColor[getRandomNumber(backgroundColor.length)];
   document.getElementById('quote-box').innerHTML = quoteOutput;
   document.getElementById("body").style.backgroundColor = getRandomColor();
   document.getElementById("loadQuote").style.backgroundColor = document.getElementById("body").style.backgroundColor;
-  clearInterval(autoGenerateQuote);
-  autoGenerateQuote = window.setInterval(printQuote, 30000);
   console.log(quoteOutput);
 }
 
