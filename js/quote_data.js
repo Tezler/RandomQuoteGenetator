@@ -9,14 +9,14 @@ var quotes = [
     source: 'E Joseph Cossman',
     citation: 'E. Joseph Cossman Quotes',
     year: '2017',
-    tags: ['Leadership', ' Eyes', ' Obstacles', 'Success']
+    tags: ['Leadership', ' Eyes', ' Obstacles', ' Success']
   },
   {
-    quote: 'Love is the longing for the half of ourselves we have lost.',
+    quote: 'Love is the longing for the half of ourselves that we have lost.',
     source: 'Milan Kundera',
     citation: 'The Unbearable Lightness of Being',
     year: '1984',
-    tags: ['Love', ' Life', 'Poetry']
+    tags: ['Love', ' Life', ' Poetry']
   },
   {
     quote: "We are all in the gutter, but some of us are looking at the stars",
@@ -28,7 +28,7 @@ var quotes = [
   {
     quote: 'It is better to be hated for what you are than to be loved by what you are not.',
     source: 'André Gide',
-    citation: 'Autum Leaves',
+    citation: 'Autumn Leaves',
     year: '1950',
     tags: ['Life', ' Inspiration', ' Words to live by']
   },
@@ -40,12 +40,10 @@ var quotes = [
     tags: ['Motivation', ' Inspiration', ' Success']
   },
   {
-    quote: "The only limits for tomorrow are the doubs we have today.",
+    quote: "The only limits for tomorrow are the doubts we have today.",
     source: 'Pittacus Lore',
     citation: 'The Power of Six',
     year: '2011',
     tags: ["Motivation", " Inspiration", " Words to live by"]
   }
 ];
-
-var backgroundColor = ['red','blue','green','purple','orange', 'DarkRed', 'DarkOrange','BlueViolet', 'Indigo', 'MediumBlue'];
