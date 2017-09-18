@@ -14,6 +14,9 @@ var bgColor;
 // when user clicks anywhere on the button, the "printQuote" function is called.
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
+// runs the printQuote function on page load.
+document.getElementById("body").addEventListener("load", printQuote, true);
+
 // Prints a quote to the page & changes background color by calling the gerRandomQuote function and returning the value.
 // added log to confirm that quotes are not repeating(project requirement) and a reset for the autoGenerateQuote interval.
 function printQuote() {
@@ -23,8 +26,8 @@ function printQuote() {
   quoteOutput += '<p><span class="tags">' + grabQuote[0].tags + '</span></p>';
   bgColor = backgroundColor[getRandomNumber(backgroundColor.length)];
   document.getElementById('quote-box').innerHTML = quoteOutput;
-  document.getElementById("body").style.backgroundColor = bgColor;
-  document.getElementById("loadQuote").style.backgroundColor = bgColor;
+  document.getElementById("body").style.backgroundColor = getRandomColor();
+  document.getElementById("loadQuote").style.backgroundColor = document.getElementById("body").style.backgroundColor;
   clearInterval(autoGenerateQuote);
   autoGenerateQuote = window.setInterval(printQuote, 30000);
   console.log(quoteOutput);
@@ -34,6 +37,16 @@ function printQuote() {
 function getRandomNumber(prop) {
   randomNumber = Math.floor((Math.random() * prop) + 0);
   return randomNumber;
+}
+
+// Generates a random color then returns it for printQuote to use for background color.
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }
 
 /*Splices an object from the original object array, stores it in a new variable then returns it
