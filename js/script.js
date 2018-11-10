@@ -1,8 +1,8 @@
-// autoGenerateQuote runs the printQuote function at 30 second intervals.
+// autoGenerateQuote runs the printQuote function at 10 second intervals.
 // quotesCopy is a splice of the original object array - used for preventing repeating.
 // randomNumber contains the number generated within the function getRandomQuote
 // quoteOutput stores the values that are going to be returned in getRandomQuote and printed.
-var autoGenerateQuote = window.setInterval(printQuote, 30000);
+var autoGenerateQuote = window.setInterval(printQuote, 10000);
 var quotesCopy = quotes.slice(0, quotes.length);
 var randomNumber;
 var quoteOutput;
@@ -18,8 +18,8 @@ document.getElementById("body").addEventListener("load", printQuote, true);
  added a log to confirm that quotes are not repeating(project requirement) and a reset for the autoGenerateQuote interval. */
 function printQuote() {
   clearInterval(autoGenerateQuote);
-  autoGenerateQuote = window.setInterval(printQuote, 30000);
-  var grabQuote = getRandomQuote();
+  autoGenerateQuote = window.setInterval(printQuote, 10000);
+  var grabQuote = getRandomQuote(quotesCopy);
   quoteOutput = '<p class="quote">' + grabQuote[0].quote + '</p>';
   quoteOutput += '<p class="source">' + grabQuote[0].source + '<span class="citation">' + grabQuote[0].citation + '</span>' + '<span class="year">' + grabQuote[0].year + '</span></p>';
   quoteOutput += '<p><span class="tags">' + grabQuote[0].tags + '</span></p>';
@@ -35,7 +35,7 @@ function getRandomNumber(prop) {
   return randomNumber;
 }
 
-// Generates a random color then returns it for printQuote to use for background color.
+// Generates a random color then returns it for printQuote to use for background/button color.
 function getRandomColor() {
   var letters = '0123456789ABCDEF';
   var color = '#';
@@ -47,8 +47,8 @@ function getRandomColor() {
 
 /*Splices an object from the quotesCopy object array, stores it in a new variable then returns it
 for printQuote to use. Added a check to refill the quotesCopy object onces it becomes empty*/
-function getRandomQuote() {
-  if (quotesCopy.length == 0) {
+function getRandomQuote(arr) {
+  if (arr.length == 0) {
     quotesCopy = quotes.slice(0, quotes.length);
   }
     getRandomNumber(quotesCopy.length);
